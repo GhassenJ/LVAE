@@ -1,12 +1,14 @@
 # Probabilistic Ladder
 Code to run experiments in
 
-**Sønderby, C.K., Raiko, T., Maaløe, L., Sønderby, S.K. and Winther, O., 2016. 
+*Sønderby, C.K., Raiko, T., Maaløe, L., Sønderby, S.K. and Winther, O., 2016. 
 How to Train Deep Variational Autoencoders and Probabilistic Ladder Networks. 
-arXiv preprint (arXiv:1602.02282)[http://arxiv.org/abs/1602.02282].**
+arXiv preprint (arXiv:1602.02282)[http://arxiv.org/abs/1602.02282].*
 
 
-To run a VAE model with 3 layers of latent units
+To run a VAE model with 3 layers of stochastic units, each connected by a two-layer MLP:
+
+*VAE: X->MLP->Z1->MLP->Z2->MLP->Z3-MLP-Z2-MLP-Z1-MLP-Xrecon*
 
 ```
 python run_models.py \
