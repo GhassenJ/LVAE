@@ -2,7 +2,9 @@
 Code to run experiments in
 
 *Sønderby, C.K., Raiko, T., Maaløe, L., Sønderby, S.K. and Winther, O., 2016.*
+
 *How to Train Deep Variational Autoencoders and Probabilistic Ladder Networks.*
+
 *arXiv preprint [arXiv:1602.02282](http://arxiv.org/abs/1602.02282).*
 
 The code is not well documented at the moment, please feel free to ask questions by writing be an email or creating a github-issue.
@@ -10,7 +12,7 @@ The code is not well documented at the moment, please feel free to ask questions
 ### Example
 To run a VAE model with 3 layers of stochastic units, each connected by a two-layer MLP:
 
-*VAE: X->MLP->Z1->MLP->Z2->MLP->Z3-MLP-Z2-MLP-Z1-MLP-Xrecon*
+*VAE: X->MLP->Z1->MLP->Z2->MLP->Z3->MLP->Z2->MLP->Z1->MLP->Xrecon*
 
 ```
 python run_models.py \
