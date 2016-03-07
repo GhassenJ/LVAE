@@ -5,7 +5,7 @@ Code to run experiments in
 *How to Train Deep Variational Autoencoders and Probabilistic Ladder Networks.*  
 *arXiv preprint [arXiv:1602.02282](http://arxiv.org/abs/1602.02282).*  
 
-The code is not well documented at the moment, please feel free to ask questions by writing be an email or creating a github-issue.
+The code is not well documented at the moment, please feel free to ask questions by writing me an email or creating a github-issue.
 
 ### Example
 To run a VAE model with 3 layers of stochastic units, each connected by a two-layer MLP:
