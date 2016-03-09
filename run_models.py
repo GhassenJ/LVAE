@@ -592,7 +592,7 @@ elif modeltype == 'ladderVAE':
         lenc_ztoz = mlp(ldec_z, num_units=hidden_sizes[i+1], W=w_init_mlp, name='ENC_Z%itoZ%i_DENSE'%(i+1,i), nonlinearity=nonlin_enc, num_mlp_layers=num_mlp_layers)
         lenc_zt_mu[i] = denselayer(lenc_ztoz, num_units=latent_sizes[i], nonlinearity=lasagne.nonlinearities.identity, name='ENC_Z_MU%i'%i)
         lenc_zt_var[i] = denselayer(lenc_ztoz, num_units=latent_sizes[i], nonlinearity=lasagne.nonlinearities.softplus, b=b_init_var, name='ENC_Z_LOG_VAR%i'%i)
-        mlpout = LadderMergeLayer(mut=lenc_zt_mu[i], vart=lenc_zt_var[i], almu=lenc_zl_mu[i], allv=lenc_zl_var[i], eq_samples=sym_eq_samples, iw_samples=sym_iw_samples)
+        mlpout = LadderMergeLayer(mu_t=lenc_zt_mu[i], var_t=lenc_zt_var[i], mu_l=lenc_zl_mu[i], var_l=lenc_zl_var[i], eq_samples=sym_eq_samples, iw_samples=sym_iw_samples)
         lenc_z_mu[i], lenc_z_var[i] = ListIndexLayer(mlpout,index=0),ListIndexLayer(mlpout,index=1)
         l_z[i] = SampleLayer(mu=lenc_z_mu[i], var=lenc_z_var[i], eq_samples=1, iw_samples=1)
         #decoder model (also for sampling)
