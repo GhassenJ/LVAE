@@ -545,7 +545,7 @@ if modeltype == 'VAE':
 
     denselayerout = batchnormlayer if batch_norm_output else lasagne.layers.DenseLayer
     l_dec_x_mu = denselayerout(ldec_h, num_units=num_features, W=w_init_mu, nonlinearity=outputnonlin, name='DEC_DENSE_MU')
-    l_dec_x_var = denselayerout(ldec_h, num_units=num_features, W=lasagne.init.Constant(0.), b=b_init_var, nonlinearity=lasagne.nonlinearities.softplus, name='DEC_DENSE_var')
+    l_dec_x_var = denselayerout(ldec_h, num_units=num_features, W=w_init_var, b=b_init_var, nonlinearity=lasagne.nonlinearities.softplus, name='DEC_DENSE_var')
     #note that the var layer is not used for anything if the density is set to bernoulli
 
 elif modeltype == 'ladderVAE':
@@ -610,7 +610,7 @@ elif modeltype == 'ladderVAE':
     ldec_h = mlp(ldec_z, num_units=hidden_sizes[0], W=w_init_mlp, name='DEC_DENSE', nonlinearity=nonlin_dec, num_mlp_layers=num_mlp_layers)
     denselayerout = batchnormlayer if batch_norm_output else lasagne.layers.DenseLayer
     l_dec_x_mu = denselayerout(ldec_h, num_units=num_features, W=w_init_mu, nonlinearity=outputnonlin, name='DEC_DENSE_MU')
-    l_dec_x_var = denselayerout(ldec_h, num_units=num_features, W=lasagne.init.Constant(0.), b=b_init_var, nonlinearity=lasagne.nonlinearities.softplus, name='DEC_DENSE_var')
+    l_dec_x_var = denselayerout(ldec_h, num_units=num_features, W=w_init_var, b=b_init_var, nonlinearity=lasagne.nonlinearities.softplus, name='DEC_DENSE_var')
 else:
     raise ValueError()
 
